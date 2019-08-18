@@ -1,0 +1,15 @@
+input {
+   http {
+    host => "<%= node["ipaddress"] %>"
+    port => 5042
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => "weu-elk-elastic0:9200"
+    manage_template => false
+    index => "%{[@metadata][http]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    document_type => "%{[@metadata][type]}"
+  }
+}

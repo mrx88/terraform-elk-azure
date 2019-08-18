@@ -1,0 +1,5 @@
+# Managed by chef; do not modify manually
+# Using host FQDN for proof-of-concept
+elasticsearch.hosts: "http://weu-elk-elastic0:9200"
+# Listen on 0.0.0.0 for accessign through public ip, access is limited through Azure NSGs
+server.host: "0.0.0.0"

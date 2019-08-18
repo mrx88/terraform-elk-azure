@@ -1,0 +1,10 @@
+# Managed by Chef; do not modify manually
+# doc https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+network.host: <%= node["ipaddress"] %>
+cluster.name: martin-development
+node.name: ${HOSTNAME}
+# Not ideal solution, this hosts list should be fully automated - using this for proof-of-concept
+discovery.seed_hosts: ["weu-elk-elastic0", "weu-elk-elastic1", "weu-elk-elastic2"]
+cluster.initial_master_nodes: ["weu-elk-elastic0", "weu-elk-elastic1"]
